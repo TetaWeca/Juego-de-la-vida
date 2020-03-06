@@ -4,7 +4,7 @@
 #include <iostream>
 #include "tablero.hpp"
 
-//definición de la clase célula
+class board_t;
 
 class cell_t 
 {
@@ -14,31 +14,33 @@ class cell_t
         bool estado_;
         int i_;
         int j_;
+        int numalive_;
 
     public:
-            cell_t(void):
+            cell_t(int i, int j):
             estado_(0),
-            i_(0),
-            j_(0) {}
+            i_(i),
+            j_(j),
+            numalive_(0) {}
 
-            cell_t(int estado):
+         /*    cell_t(int estado):
             estado_(estado),
             i_(0),
-            j_(0) {}
+            j_(0), 
+            numalive_(0) {} */
        
 
-        int getEstado() const;
-
-        int getX();
-
-        int getY();
+        bool getEstado() const;
 
         void setPos(int x, int y);
 
-        void setEstado(int new_estado);
+        void setEstado(bool new_estado);
 
-        int actualizarEstado();
+        void actualizarEstado();
 
-        // int contarVecinas(&tablero tablerito);
+
+        int contarVecinas(board_t& tablerito);
 
 };
+
+std::ostream& operator<<(std::ostream& os, const cell_t& cell);

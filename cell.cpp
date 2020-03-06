@@ -1,25 +1,14 @@
 
-#include <iostream>
 #include "cell.hpp"
 
-    int cell_t::getEstado() const
+    bool cell_t::getEstado() const
     {
         return estado_;
     }
 
-    void cell_t::setEstado(int new_estado)
+    void cell_t::setEstado(bool new_estado) 
     {
         estado_ == new_estado;
-    }
-
-    int cell_t::getX()
-    {
-        return i_;
-    }
-
-    int cell_t::getY()
-    {
-        return j_;
     }
 
     void cell_t::setPos(const int x, const int y)
@@ -28,15 +17,13 @@
         j_ = y;
     }
 
-    int cell_t::actualizarEstado()
+    void cell_t::actualizarEstado()
     {
-        int numvivas;
-
-        if (getEstado()==0 && numvivas==3)
+        if (getEstado() == 0 && numalive_ == 3)
         {
             setEstado(1);
         }
-        else if(getEstado()==1 && numvivas!=2 && numvivas !=3)
+        else if(getEstado() == 1 && numalive_ != 2 && numalive_ != 3)
         {
             setEstado(0);
         }
@@ -48,3 +35,15 @@
             
     //     }
     // }
+
+    std::ostream& operator<<(std::ostream& os, const cell_t& cell)    
+    {
+        if (cell.getEstado()==1)
+        {
+            std::cout<<"X";
+        }
+        else 
+        {
+            std::cout<<" ";
+        }
+    }
