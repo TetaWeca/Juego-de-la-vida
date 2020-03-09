@@ -32,12 +32,11 @@ class cell_t
 
         bool getEstado() const;
 
+        void setEstado(bool new_estado);
+        
         void setPos(int x, int y);
 
-        void setEstado(bool new_estado);
-
         void actualizarEstado();
-
 
         int contarVecinas(board_t& tablerito);
 

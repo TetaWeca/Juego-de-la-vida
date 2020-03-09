@@ -29,12 +29,24 @@
         }
     }
     
-    // cell_t::contarVecinas()
-    // {
-    //     for (i=0;i<8;i++){
-            
-    //     }
-    // }
+     int cell_t::contarVecinas(board_t& tablerito)
+     {
+        numalive_=0;
+        for (int i=-1;i<=1;i++)
+        {
+            for (int j=-1;j<=1;j++)
+            {
+                if (i_+i != 0 && j_+j !=0)
+                {
+                    if (tablerito.at(i_+i,j_+j)->getEstado()==true)
+                    {
+                        numalive_++;
+                    }
+                }
+                    
+            }
+        }
+     }
 
     std::ostream& operator<<(std::ostream& os, const cell_t& cell)    
     {

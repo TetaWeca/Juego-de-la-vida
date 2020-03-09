@@ -18,8 +18,10 @@ class board_t
 
         board_t(int x, int y);
 
-        // cell_t* at(int x, int y);
+        cell_t* at(int x, int y);
 
         void SetAlive(int x, int y);
+
+        void turno();
 
 };

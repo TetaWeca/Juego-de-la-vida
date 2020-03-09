@@ -24,8 +24,35 @@ board_t::board_t(int x, int y):
         celulis[++x][++y]->setEstado(1);
     }
 
-// cell_t* board_t::at(int x, int y)
-//     {
-//         return celulis[x][y];
-//     }
+    void board_t::turno()
+    {
+        for (int i=1;i<x_-1;i++)
+        {
+            for (int j=1;j<y_-1;j++)
+            {
+                celulis[i][j]->contarVecinas(*this);
+            }
+        }
+        for (int i=1;i<x_-1;i++)
+        {
+            for (int j=1;j<y_-1;j++)
+            {
+                celulis[i][j]->actualizarEstado();
+            }
+        }
+        for (int i=1;i<x_-1;i++)
+        {
+            std::cout << "\n";
+
+            for (int j=1;j<y_-1;j++)
+            {
+                std::cout << celulis[i][j];
+            }
+        }
+    }
+
+    cell_t* board_t::at(int x, int y)
+    {
+        return celulis[x][y];
+    }
 
