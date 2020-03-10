@@ -21,10 +21,16 @@ board_t::board_t(int x, int y):
     {
         assert(x < x_-2 && x > -1);
         assert(y < y_-2 && y > -1);  
-        celulis[++x][++y]->setEstado(1);
+        celulis[++x][++y]->setEstado(true);
     }
 
     void board_t::turno()
+    {
+        count_neigh();
+        updateCells();
+    }
+
+    void board_t::count_neigh()
     {
         for (int i=1;i<x_-1;i++)
         {
@@ -33,20 +39,15 @@ board_t::board_t(int x, int y):
                 celulis[i][j]->contarVecinas(*this);
             }
         }
-        for (int i=1;i<x_-1;i++)
+    }
+
+    void board_t::updateCells()
+    {
+           for (int i=1;i<x_-1;i++)
         {
             for (int j=1;j<y_-1;j++)
             {
                 celulis[i][j]->actualizarEstado();
-            }
-        }
-        for (int i=1;i<x_-1;i++)
-        {
-            std::cout << "\n";
-
-            for (int j=1;j<y_-1;j++)
-            {
-                std::cout << celulis[i][j];
             }
         }
     }
@@ -56,3 +57,21 @@ board_t::board_t(int x, int y):
         return celulis[x][y];
     }
 
+    std::ostream& operator<<(std::ostream& os, const board_t& board)
+    {
+        os << " " << std::string(board.y_,'_')<<"\n";
+         for (int i=0;i<board.x_;i++)
+        {
+            os<<"|";
+            
+            for (int j=0;j<board.y_;j++)
+            {
+                os << *board.celulis[i][j];
+            }
+            
+            os << "|"<<"\n";
+        }
+        os << " " << std::string(board.y_,'_');
+        os << "\n";
+        return os;
+    };

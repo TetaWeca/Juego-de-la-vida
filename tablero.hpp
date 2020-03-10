@@ -24,4 +24,11 @@ class board_t
 
         void turno();
 
+        void count_neigh();
+
+        void updateCells();
+
+        friend std::ostream& operator<<(std::ostream& os, const board_t& board);
 };
+
+    // std::ostream& operator<<(std::ostream& os, const board_t& board);

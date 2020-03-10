@@ -8,7 +8,7 @@
 
     void cell_t::setEstado(bool new_estado) 
     {
-        estado_ == new_estado;
+        estado_ = new_estado;
     }
 
     void cell_t::setPos(const int x, const int y)
@@ -19,13 +19,13 @@
 
     void cell_t::actualizarEstado()
     {
-        if (getEstado() == 0 && numalive_ == 3)
+        if (getEstado() == false && numalive_ == 3)
         {
             setEstado(1);
         }
-        else if(getEstado() == 1 && numalive_ != 2 && numalive_ != 3)
+        else if(getEstado() == true && numalive_ != 2 && numalive_ != 3)
         {
-            setEstado(0);
+            setEstado(false);
         }
     }
     
@@ -46,16 +46,18 @@
                     
             }
         }
+        return numalive_;
      }
 
     std::ostream& operator<<(std::ostream& os, const cell_t& cell)    
     {
-        if (cell.getEstado()==1)
+        if (cell.getEstado()==true)
         {
-            std::cout<<"X";
+            os<<"X";
         }
         else 
         {
-            std::cout<<" ";
+            os<<" ";
         }
+        return os;
     }
