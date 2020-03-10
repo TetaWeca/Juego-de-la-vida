@@ -18,7 +18,7 @@ class cell_t
 
     public:
             cell_t(int i, int j):
-            state_(0),
+            state_(false),
             i_(i),
             j_(j),
             aliveneigh_(0) {}

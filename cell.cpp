@@ -59,7 +59,7 @@
         {
             os<<"X";
         }
-        else 
+        else if (cell.getEstado()==false)
         {
             os<<" ";
         }

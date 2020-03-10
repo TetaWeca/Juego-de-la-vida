@@ -13,9 +13,11 @@ int main(void){
     std::cout << "Y, lógicamente, el número de columnas también: ";
     std::cin >> columns;
 
-    board_t tablero(rows,columns);
+    board_t tablero(columns,rows);
 
     int row,column;
+
+    std::cout << tablero;
 
     std::cout << "Vamos a hacer que una de las células esté viva. Dime el número de fila de la célula: ";
         std::cin >> row;

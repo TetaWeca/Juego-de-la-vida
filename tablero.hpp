@@ -11,8 +11,8 @@ class board_t
     private:
 
         cell_t*** celulis;
-        int x_;
-        int y_;
+        int x_;         //número de columnas
+        int y_;         //número de filas
 
     public:
 
