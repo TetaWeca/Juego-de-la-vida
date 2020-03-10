@@ -6,43 +6,51 @@
 
 int main(void){
 
-    int filas,columnas,condicion,turnos;
+    int rows,columns,condition,turns;
 
-    std::cout << "Hola socio, mira una cosa, necesito que me des el tamaño del tablero so dime las filas:";
-    std::cin >> filas;
-    std::cout << "Y si me dices las columnas te la marcas tmb: ";
-    std::cin >> columnas;
+    std::cout << "¡Buenas, bienvenido al Juego de la Vida! Para empezar, necesitamos que pongas un número de filas para el tablero: ";
+    std::cin >> rows;
+    std::cout << "Y, lógicamente, el número de columnas también: ";
+    std::cin >> columns;
 
-    board_t tablero(filas,columnas);
+    board_t tablero(rows,columns);
 
-    while (condicion != 0)
+    int row,column;
+
+    std::cout << "Vamos a hacer que una de las células esté viva. Dime el número de fila de la célula: ";
+        std::cin >> row;
+        std::cout << "Y el número de columna: ";
+        std::cin >> column;
+
+        tablero.SetAlive(row-1,column-1);
+        std::cout << tablero;
+
+    while (condition != 0)
     {
-        int fila,columna;
-
-        std::cout << "Ahora dime, ¿quieres añadir una célula viva?";
+        std::cout << "¡Ahí está! ¿Quieres añadir otra célula más? ";
         std::cout << "\n[Si la respuesta es 'Sí' introduce un 1, si es un 'No' introduce un 0]: ";
-        std::cin >> condicion;
+        std::cin >> condition;
 
-        if (condicion != 0)
+        if (condition != 0)
         {
         std::cout << "Dime el número de fila de la célula: ";
-        std::cin >> fila;
+        std::cin >> row;
         std::cout << "Y el número de columna: ";
-        std::cin >> columna;
+        std::cin >> column;
 
-        tablero.SetAlive(fila-1,columna-1);
+        tablero.SetAlive(row-1,column-1);
         std::cout << tablero;
         }
     }
 
     std::cout << "Ya casi estamos, dentro de nada podrás jugar a este maravilloso juego en el que no influyes en nada!!";
     std::cout << "\nAhora si te enrollas y pones el número de turnos que te gustaría ver, sería la pinga: ";
-    std::cin >> turnos;
+    std::cin >> turns;
 
-    for (int i=0;i<turnos;i++)
+    for (int i=0;i<turns;i++)
     {
         std::cout<<"\nTurno "<<i<<"\n";
-        tablero.turno();
+        tablero.turn();
         std::cout << tablero;
     }
 

@@ -18,17 +18,17 @@ class board_t
 
         board_t(int x, int y);
 
+        ~board_t();
+
         cell_t* at(int x, int y);
 
         void SetAlive(int x, int y);
 
-        void turno();
+        void turn();
 
         void count_neigh();
 
         void updateCells();
 
         friend std::ostream& operator<<(std::ostream& os, const board_t& board);
-};
-
-    // std::ostream& operator<<(std::ostream& os, const board_t& board);
+};    

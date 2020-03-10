@@ -2,20 +2,31 @@
 #include "tablero.hpp"
 #include <cassert>
 
-board_t::board_t(int x, int y):
-    x_(x+2),
-    y_(y+2)
-{
-    celulis = new cell_t**[y_];
-    for(int i=0;i<x_;i++)
+    board_t::board_t(int x, int y):
+        x_(x+2),
+        y_(y+2)
     {
-        celulis[i]= new cell_t*[x_];
-        for(int j=0;j<y_;j++)
+        celulis = new cell_t**[y_];
+        for(int i=0;i<x_;i++)
         {
-            celulis[i][j] = new cell_t(i,j);
+            celulis[i]= new cell_t*[x_];
+            for(int j=0;j<y_;j++)
+            {
+                celulis[i][j] = new cell_t(i,j);
+            }
         }
     }
-}
+
+    board_t::~board_t()
+    {
+        for(int i=0;i<x_;i++)
+        {
+            for(int j=0;j<y_;j++)
+            {
+                delete celulis[i][j];
+            }
+        }
+    }
 
     void board_t::SetAlive(int x, int y)
     {
@@ -24,7 +35,7 @@ board_t::board_t(int x, int y):
         celulis[++x][++y]->setEstado(true);
     }
 
-    void board_t::turno()
+    void board_t::turn()
     {
         count_neigh();
         updateCells();
