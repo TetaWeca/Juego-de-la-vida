@@ -23,13 +23,13 @@ class cell_t
             j_(j),
             aliveneigh_(0) {}
 
-        bool getEstado() const;
+        bool getState() const;
 
-        void setEstado(bool new_state);
+        void setState(bool new_state);
         
         void setPos(int x, int y);
 
-        void actualizarEstado();
+        void updateState();
 
         int contarVecinas(board_t& tablerito);
 

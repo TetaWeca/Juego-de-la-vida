@@ -32,7 +32,7 @@
     {
         assert(x < y_-2 && x > -1);
         assert(y < x_-2 && y > -1);  
-        celulis[++x][++y]->setEstado(true);
+        celulis[++x][++y]->setState(true);
     }
 
     void board_t::turn()
@@ -58,7 +58,7 @@
         {
             for (int j=1;j<x_-1;j++)
             {
-                celulis[i][j]->actualizarEstado();
+                celulis[i][j]->updateState();
             }
         }
     }

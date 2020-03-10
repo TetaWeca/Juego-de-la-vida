@@ -1,12 +1,12 @@
 
 #include "cell.hpp"
 
-    bool cell_t::getEstado() const
+    bool cell_t::getState() const
     {
         return state_;
     }
 
-    void cell_t::setEstado(bool new_state) 
+    void cell_t::setState(bool new_state) 
     {
         state_ = new_state;
     }
@@ -17,15 +17,15 @@
         j_ = y;
     }
 
-    void cell_t::actualizarEstado()
+    void cell_t::updateState()
     {
-        if (getEstado() == false && aliveneigh_ == 3)
+        if (getState() == false && aliveneigh_ == 3)
         {
-            setEstado(true);
+            setState(true);
         }
-        else if(getEstado() == true && aliveneigh_ != 2 && aliveneigh_ != 3)
+        else if(getState() == true && aliveneigh_ != 2 && aliveneigh_ != 3)
         {
-            setEstado(false);
+            setState(false);
         }
     }
     
@@ -42,7 +42,7 @@
                 }
                 else
                 {
-                    if (tablerito.at(i_+i,j_+j)->getEstado()==true)
+                    if (tablerito.at(i_+i,j_+j)->getState()==true)
                     {
                         aliveneigh_++;
                     }
@@ -55,11 +55,11 @@
 
     std::ostream& operator<<(std::ostream& os, const cell_t& cell)    
     {
-        if (cell.getEstado()==true)
+        if (cell.getState()==true)
         {
             os<<"X";
         }
-        else if (cell.getEstado()==false)
+        else if (cell.getState()==false)
         {
             os<<" ";
         }
