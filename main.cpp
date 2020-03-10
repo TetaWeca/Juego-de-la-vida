@@ -41,13 +41,10 @@ int main(void){
 
     for (int i=0;i<turnos;i++)
     {
+        std::cout<<"\nTurno "<<i<<"\n";
         tablero.turno();
         std::cout << tablero;
     }
-
-    // tablero.at(0,0)->setEstado(1);
-
-    // tablero.at(0,0)->actualizarEstado();
 
 
 }

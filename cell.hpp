@@ -40,6 +40,7 @@ class cell_t
 
         int contarVecinas(board_t& tablerito);
 
+        friend std::ostream& operator<<(std::ostream& os, const cell_t& cell);
+
 };
 
-std::ostream& operator<<(std::ostream& os, const cell_t& cell);
