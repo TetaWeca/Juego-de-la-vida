@@ -21,6 +21,16 @@
         return j_;
     }
 
+    void cell_t::addturn()
+    {
+        turnsalive_=++turnsalive_;
+    }
+
+    int cell_t::getTurns()
+    {
+        return turnsalive_;
+    }
+
     void cell_t::setPos(const int x, const int y)
     {
         i_ = x;

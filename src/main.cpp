@@ -55,5 +55,6 @@ int main(void){
         std::cout << board;
     }
 
+    board.maxAlive();
 
 }

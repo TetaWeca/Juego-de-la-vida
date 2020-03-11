@@ -11,8 +11,8 @@ class board_t
     private:
 
         cell_t*** celulis;
-        int x_;         //número de columnas
-        int y_;         //número de filas
+        int x_;         //tamaño de las columnas, número de filas
+        int y_;         //número de columnas, tamaño de las filas
 
     public:
 
@@ -29,6 +29,8 @@ class board_t
         void count_neigh();
 
         void updateCells();
+
+        void maxAlive();
 
         friend std::ostream& operator<<(std::ostream& os, const board_t& board);
 };    

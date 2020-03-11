@@ -15,13 +15,15 @@ class cell_t
         int i_;
         int j_;
         int aliveneigh_;
+        int turnsalive_;
 
     public:
             cell_t(int i, int j):
             state_(false),
             i_(i),
             j_(j),
-            aliveneigh_(0) {}
+            aliveneigh_(0),
+            turnsalive_(0) {}
 
         bool getState() const;
 
@@ -31,6 +33,10 @@ class cell_t
 
         int getY();
         
+        int getTurns();
+        
+        void addturn();
+
         void setPos(int x, int y);
 
         void updateState();

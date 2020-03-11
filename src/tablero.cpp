@@ -54,10 +54,14 @@
 
     void board_t::updateCells()
     {
-           for (int i=1;i<y_-1;i++)
+        for (int i=1;i<y_-1;i++)
         {
             for (int j=1;j<x_-1;j++)
             {
+                if (celulis[i][j]->getState()==true)
+                {
+                    celulis[i][j]->addturn();
+                }
                 celulis[i][j]->updateState();
             }
         }
@@ -66,6 +70,29 @@
     cell_t* board_t::at(int x, int y)
     {
         return celulis[x][y];
+    }
+
+    void board_t::maxAlive()
+    {
+        int maxturns = 0;
+        int posX = 0;
+        int posY = 0;
+
+        for (int i=1;i<y_-1;i++)
+        {
+            for (int j=1;j<x_-1;j++)
+            {
+               if (celulis[i][j]->getTurns() > maxturns)
+               {
+                maxturns = celulis[i][j]->getTurns();
+                posX = celulis[i][j]->getX();
+                posY = celulis[i][j]->getY();
+               }
+            }
+        }
+
+        std::cout << "\nLa célula que más turnos ha estado viva es la célula [" << posX <<"][" << posY << "]";
+        std::cout << "\nY ha estado viva durante " << maxturns << " turnos.\n";
     }
 
     std::ostream& operator<<(std::ostream& os, const board_t& board)
