@@ -11,6 +11,16 @@
         state_ = new_state;
     }
 
+    int cell_t::getX()
+    {
+        return i_;
+    }
+
+    int cell_t::getY()
+    {
+        return j_;
+    }
+
     void cell_t::setPos(const int x, const int y)
     {
         i_ = x;
@@ -29,7 +39,7 @@
         }
     }
     
-    int cell_t::contarVecinas(board_t& tablerito)
+    int cell_t::countAliveNeigh(board_t& boardie)
      {
         aliveneigh_ = 0;
         for (int i=-1;i<=1;i++)
@@ -42,7 +52,7 @@
                 }
                 else
                 {
-                    if (tablerito.at(i_+i,j_+j)->getState()==true)
+                    if (boardie.at(i_+i,j_+j)->getState()==true)
                     {
                         aliveneigh_++;
                     }

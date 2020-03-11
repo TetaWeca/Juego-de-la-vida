@@ -1,6 +1,5 @@
 
 #include <iostream>
-#include "cell.hpp"
 #include "cell.cpp"
 #include "tablero.cpp"
 
@@ -13,19 +12,19 @@ int main(void){
     std::cout << "Y, lógicamente, el número de columnas también: ";
     std::cin >> columns;
 
-    board_t tablero(columns,rows);
+    board_t board(columns,rows);
 
     int row,column;
 
-    std::cout << tablero;
+    std::cout << board;
 
     std::cout << "Vamos a hacer que una de las células esté viva. Dime el número de fila de la célula: ";
         std::cin >> row;
         std::cout << "Y el número de columna: ";
         std::cin >> column;
 
-        tablero.SetAlive(row-1,column-1);
-        std::cout << tablero;
+        board.SetAlive(row-1,column-1);
+        std::cout << board;
 
     while (condition != 0)
     {
@@ -40,20 +39,20 @@ int main(void){
         std::cout << "Y el número de columna: ";
         std::cin >> column;
 
-        tablero.SetAlive(row-1,column-1);
-        std::cout << tablero;
+        board.SetAlive(row-1,column-1);
+        std::cout << board;
         }
     }
 
-    std::cout << "Ya casi estamos, dentro de nada podrás jugar a este maravilloso juego en el que no influyes en nada!!";
-    std::cout << "\nAhora si te enrollas y pones el número de turnos que te gustaría ver, sería la pinga: ";
+    std::cout << "Ya casi estamos, ¡Sólo queda un paso! ";
+    std::cout << "\nIntroduce el número de turnos que quieres ver: ";
     std::cin >> turns;
 
     for (int i=0;i<turns;i++)
     {
-        std::cout<<"\nTurno "<<i<<"\n";
-        tablero.turn();
-        std::cout << tablero;
+        std::cout<<"\nTurno "<<i+1<<"\n";
+        board.turn();
+        std::cout << board;
     }
 
 

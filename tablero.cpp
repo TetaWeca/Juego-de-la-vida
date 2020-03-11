@@ -47,7 +47,7 @@
         {
             for (int j=1;j<x_-1;j++)
             {
-                celulis[i][j]->contarVecinas(*this);
+                celulis[i][j]->countAliveNeigh(*this);
             }
         }
     }
