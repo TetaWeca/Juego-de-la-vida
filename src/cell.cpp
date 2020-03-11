@@ -1,5 +1,5 @@
 
-#include "cell.hpp"
+#include "../include/cell.hpp"
 
     bool cell_t::getState() const
     {

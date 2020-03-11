@@ -1,5 +1,5 @@
 
-#include "tablero.hpp"
+#include "../include/tablero.hpp"
 #include <cassert>
 
     board_t::board_t(int x, int y):
