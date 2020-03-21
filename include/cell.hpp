@@ -3,15 +3,27 @@
 
 #include <iostream>
 #include "tablero.hpp"
+#define COND_CELL_ALIVE_TYPE1 (aliveneigh_ == 3)
+#define COND_CELL_ALIVE_TYPE2 (aliveneigh_ == 3 || aliveneigh_ == 6 || aliveneigh_ == 8)
+#define COND_CELL_ALIVE_TYPE3 (aliveneigh_ == 3 || aliveneigh_ == 4 || aliveneigh_ == 6)
+
+enum TiposCelula 
+{
+    CELLTYPE0,
+    CELLTYPE1,
+    CELLTYPE2,
+    CELLTYPE3
+};
+
 
 class board_t;
 
 class cell_t 
 {
 
-    private:
+    protected:
 
-        bool state_;
+        int type;
         int i_;
         int j_;
         int aliveneigh_;
@@ -19,13 +31,15 @@ class cell_t
 
     public:
             cell_t(int i, int j):
-            state_(false),
             i_(i),
             j_(j),
+            type(0),
             aliveneigh_(0),
             turnsalive_(0) {}
 
-        bool getState() const;
+        static cell_t* createCell(int i, int j, int type);
+
+        virtual int getState() const {return 0;};
 
         void setState(bool new_state);
 
@@ -39,9 +53,11 @@ class cell_t
 
         void setPos(int x, int y);
 
-        void updateState();
+        virtual int updateState();
 
-        int countAliveNeigh(board_t& boardie);
+        virtual int countAliveNeigh(board_t& boardie);
+
+        virtual std::ostream& show(std::ostream& os) const; 
 
         friend std::ostream& operator<<(std::ostream& os, const cell_t& cell);
 

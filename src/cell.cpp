@@ -1,16 +1,6 @@
 
 #include "../include/cell.hpp"
 
-    bool cell_t::getState() const
-    {
-        return state_;
-    }
-
-    void cell_t::setState(bool new_state) 
-    {
-        state_ = new_state;
-    }
-
     int cell_t::getX()
     {
         return i_;
@@ -37,16 +27,24 @@
         j_ = y;
     }
 
-    void cell_t::updateState()
+    int cell_t::updateState()
     {
-        if (getState() == false && aliveneigh_ == 3)
+        if (COND_CELL_ALIVE_TYPE1)
         {
-            setState(true);
+            return CELLTYPE1;
         }
-        else if(getState() == true && aliveneigh_ != 2 && aliveneigh_ != 3)
+
+        else if (COND_CELL_ALIVE_TYPE2)
         {
-            setState(false);
+            return CELLTYPE2;
         }
+
+        else if (COND_CELL_ALIVE_TYPE3)
+        {
+            return CELLTYPE3;
+        }
+
+        else return CELLTYPE0;
     }
     
     int cell_t::countAliveNeigh(board_t& boardie)
@@ -73,15 +71,14 @@
         return aliveneigh_;
      }
 
+    std::ostream& cell_t::show(std::ostream& os) const
+    {
+        os << " ";
+
+        return os;
+    }
+
     std::ostream& operator<<(std::ostream& os, const cell_t& cell)    
     {
-        if (cell.getState()==true)
-        {
-            os<<"X";
-        }
-        else if (cell.getState()==false)
-        {
-            os<<" ";
-        }
-        return os;
+        return cell.show(os);
     }
