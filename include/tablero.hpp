@@ -22,7 +22,7 @@ class board_t
 
         cell_t* at(int x, int y);
 
-        void SetAlive(int x, int y);
+        void SetAlive(int x, int y, int tipo);
 
         void turn();
 

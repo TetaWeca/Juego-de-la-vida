@@ -1,6 +1,22 @@
 
 #include "../include/cell.hpp"
 
+    cell_t* cell_t::createCell(int i, int j, int type)
+    {     
+        if (type == 1)
+        {
+            return new cell1(i,j);
+        }
+        else if (type == 2)
+        {
+            return new cell2(i,j);
+        }
+        else if (type == 3)
+        {
+            return new cell3(i,j);
+        }         
+    }
+
     int cell_t::getX()
     {
         return i_;
@@ -27,7 +43,7 @@
         j_ = y;
     }
 
-    int cell_t::updateState()
+    int cell_t::getnewType()
     {
         if (COND_CELL_ALIVE_TYPE1)
         {
@@ -60,7 +76,7 @@
                 }
                 else
                 {
-                    if (boardie.at(i_+i,j_+j)->getState()==true)
+                    if (boardie.at(i_+i,j_+j)->getState()!=0)
                     {
                         aliveneigh_++;
                     }

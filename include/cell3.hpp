@@ -9,7 +9,10 @@ class cell3 : public cell_t
 {
     public:
 
-    int actualizarEstado();     //reglas de nacimiento
+        cell3(int i,int j): 
+        cell_t(i,j) {}
+
+    int survivalCheck();     //reglas de nacimiento
 
     int getState() {return CELLTYPE3;}
 

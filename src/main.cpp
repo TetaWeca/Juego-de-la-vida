@@ -5,7 +5,7 @@
 
 int main(void){
 
-    int rows,columns,condition,turns;
+    int rows,columns,condition,turns,type;
 
     std::cout << "¡Buenas, bienvenido al Juego de la Vida! Para empezar, necesitamos que pongas un número de filas para el tablero: ";
     std::cin >> rows;
@@ -22,8 +22,9 @@ int main(void){
         std::cin >> row;
         std::cout << "Y el número de columna: ";
         std::cin >> column;
+        std::cin >> type;
 
-        board.SetAlive(row-1,column-1);
+        board.SetAlive(row-1,column-1,type);
         std::cout << board;
 
     while (condition != 0)
@@ -39,7 +40,7 @@ int main(void){
         std::cout << "Y el número de columna: ";
         std::cin >> column;
 
-        board.SetAlive(row-1,column-1);
+        board.SetAlive(row-1,column-1,type);
         std::cout << board;
         }
     }

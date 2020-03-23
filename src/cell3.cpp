@@ -1,7 +1,7 @@
 
 #include "../include/cell3.hpp"
 
-int cell3::actualizarEstado()
+int cell3::survivalCheck()
 {
     if (COND_SURV_TYPE3)
     {

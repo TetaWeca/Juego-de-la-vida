@@ -1,6 +1,6 @@
 #include "../include/cell2.hpp"
 
-int cell2::actualizarEstado()
+int cell2::survivalCheck()
 {
     if (COND_SURV_TYPE2)
     {

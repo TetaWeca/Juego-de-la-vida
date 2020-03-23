@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include "tablero.hpp"
+#include "cell1.hpp"
+#include "cell2.hpp"
+#include "cell3.hpp"
 #define COND_CELL_ALIVE_TYPE1 (aliveneigh_ == 3)
 #define COND_CELL_ALIVE_TYPE2 (aliveneigh_ == 3 || aliveneigh_ == 6 || aliveneigh_ == 8)
 #define COND_CELL_ALIVE_TYPE3 (aliveneigh_ == 3 || aliveneigh_ == 4 || aliveneigh_ == 6)
@@ -39,7 +42,7 @@ class cell_t
 
         static cell_t* createCell(int i, int j, int type);
 
-        virtual int getState() const {return 0;};
+        virtual int getState() const {return CELLTYPE0;};
 
         void setState(bool new_state);
 
@@ -53,7 +56,7 @@ class cell_t
 
         void setPos(int x, int y);
 
-        virtual int updateState();
+        virtual int getnewType();
 
         virtual int countAliveNeigh(board_t& boardie);
 
