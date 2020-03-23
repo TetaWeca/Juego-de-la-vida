@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include "cell.hpp"
+#include "cell1.hpp"
+#include "cell2.hpp"
+#include "cell3.hpp"
 
 class cell_t;
 

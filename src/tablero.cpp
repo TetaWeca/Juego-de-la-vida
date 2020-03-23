@@ -32,8 +32,10 @@
     {
         assert(x < y_-2 && x > -1);
         assert(y < x_-2 && y > -1);  
-        delete celulis[++x][++y];
-        celulis[++x][++y] = celulis[++x][++y]->createCell(++x, ++y, tipo);
+        
+        delete celulis[x+1][y+1];
+
+        celulis[x+1][y+1] = cell_t::createCell(x+1,y+1,tipo);
     }
 
     void board_t::turn()
@@ -59,11 +61,10 @@
         {
             for (int j=1;j<x_-1;j++)
             {
-                if (celulis[i][j]->getState()!=0)
+                if(celulis[i][j]->getState()!=celulis[i][j]->getnewType())
                 {
-                    celulis[i][j]->addturn();
+                    SetAlive(i-1,j-1,celulis[i][j]->getnewType());
                 }
-                celulis[i][j]->getnewType();
             }
         }
     }

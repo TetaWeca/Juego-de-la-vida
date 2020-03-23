@@ -1,7 +1,7 @@
 
 #include "../include/cell1.hpp"
 
-int cell1::survivalCheck()
+int cell1::getnewType()
 {
     if (COND_SURV_TYPE1)
     {

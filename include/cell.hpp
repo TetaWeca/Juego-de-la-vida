@@ -2,10 +2,6 @@
 #pragma once
 
 #include <iostream>
-#include "tablero.hpp"
-#include "cell1.hpp"
-#include "cell2.hpp"
-#include "cell3.hpp"
 #define COND_CELL_ALIVE_TYPE1 (aliveneigh_ == 3)
 #define COND_CELL_ALIVE_TYPE2 (aliveneigh_ == 3 || aliveneigh_ == 6 || aliveneigh_ == 8)
 #define COND_CELL_ALIVE_TYPE3 (aliveneigh_ == 3 || aliveneigh_ == 4 || aliveneigh_ == 6)

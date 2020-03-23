@@ -22,6 +22,7 @@ int main(void){
         std::cin >> row;
         std::cout << "Y el número de columna: ";
         std::cin >> column;
+        std::cout << "¿Qué tipo de célula debería ser?";
         std::cin >> type;
 
         board.SetAlive(row-1,column-1,type);
@@ -39,6 +40,8 @@ int main(void){
         std::cin >> row;
         std::cout << "Y el número de columna: ";
         std::cin >> column;
+        std::cout << "¿Qué tipo de célula debería ser?";
+        std::cin >> type;
 
         board.SetAlive(row-1,column-1,type);
         std::cout << board;
