@@ -44,6 +44,11 @@
         updateCells();
     }
 
+    void board_t::cuenta()
+    {
+        count_neigh();
+    }
+
     void board_t::count_neigh()
     {
         for (int i=1;i<y_-1;i++)

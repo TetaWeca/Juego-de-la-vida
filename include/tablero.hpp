@@ -29,6 +29,8 @@ class board_t
 
         void turn();
 
+        void cuenta();
+
         void count_neigh();
 
         void updateCells();

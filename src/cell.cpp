@@ -3,15 +3,15 @@
 
     cell_t* cell_t::createCell(int i, int j, int type)
     {     
-        if (type == 1)
+        if (type == TiposCelula::CELLTYPE1)
         {
             return new cell1(i,j);
         }
-        else if (type == 2)
+        else if (type == TiposCelula::CELLTYPE2)
         {
             return new cell2(i,j);
         }
-        else if (type == 3)
+        else if (type == TiposCelula::CELLTYPE3)
         {
             return new cell3(i,j);
         }

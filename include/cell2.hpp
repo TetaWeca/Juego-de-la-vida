@@ -13,7 +13,7 @@ class cell2 : public cell_t
 
     int getnewType();     //reglas de nacimiento
 
-    int getState() {return TiposCelula::CELLTYPE2;}
+    int getState() const {return TiposCelula::CELLTYPE2;}
 
     std::ostream& show(std::ostream& os) const; 
 
