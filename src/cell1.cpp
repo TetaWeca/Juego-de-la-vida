@@ -10,14 +10,14 @@ int cell1::getnewType()
     else return CELLTYPE0;
 }
 
-std::ostream& cell_t::show(std::ostream& os) const
+std::ostream& cell1::show(std::ostream& os) const
 {
-    os << "1";
+    os << "1"; 
 
     return os;
 }
 
-std::ostream& operator<<(std::ostream& os, const cell_t& cell)
+std::ostream& operator<<(std::ostream& os, const cell1& cell)
 {
     return cell.show(os);
 }

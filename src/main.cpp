@@ -1,6 +1,9 @@
 
 #include <iostream>
 #include "cell.cpp"
+#include "cell1.cpp"
+#include "cell2.cpp"
+#include "cell3.cpp"
 #include "tablero.cpp"
 
 int main(void){
@@ -59,6 +62,6 @@ int main(void){
         std::cout << board;
     }
 
-    board.maxAlive();
+    cell1 A(1,1);
 
 }

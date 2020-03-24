@@ -61,10 +61,11 @@
         {
             for (int j=1;j<x_-1;j++)
             {
-                if(celulis[i][j]->getState()!=celulis[i][j]->getnewType())
-                {
-                    SetAlive(i-1,j-1,celulis[i][j]->getnewType());
-                }
+                int nuevotipo = celulis[i][j]->getnewType();
+                    if(celulis[i][j]->getState() != nuevotipo)
+                    {
+                        SetAlive(i-1,j-1,nuevotipo);
+                    }
             }
         }
     }
