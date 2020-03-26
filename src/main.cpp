@@ -34,9 +34,7 @@ int main(void){
 
             std::cout << board;
         }
-
-        else
-    {
+    
 
         std::cout << "Vamos a hacer que una de las células esté viva. Dime el número de fila de la célula: ";
         std::cin >> row;
@@ -67,7 +65,7 @@ int main(void){
         std::cout << board;
         }
     }
-    }
+    
 
     std::cout << "Ya casi estamos, ¡Sólo queda un paso! ";
     std::cout << "\nIntroduce el número de turnos que quieres ver: ";

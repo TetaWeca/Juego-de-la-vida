@@ -65,28 +65,26 @@
     }
     
     int cell_t::countAliveNeigh(board_t& boardie)
-     {
+    {
         aliveneigh_ = 0;
         for (int i=-1;i<=1;i++)
         {
             for (int j=-1;j<=1;j++)
             {
-                if (i_+i == i_ && j_+j ==j_)
+                if(i != 0 || j != 0)
                 {
-                    aliveneigh_=aliveneigh_;
-                }
-                else
-                {
-                    if (boardie.at(i_+i,j_+j)->getState()!=0)
+                    if(i != j && i != -j)
                     {
-                        aliveneigh_++;
+                        if (boardie.at(i_+i,j_+j)->getState()!=0)
+                        {
+                            aliveneigh_++;
+                        }
                     }
                 }
-                
             }
         }
         return aliveneigh_;
-     }
+    }
 
     std::ostream& cell_t::show(std::ostream& os) const
     {
