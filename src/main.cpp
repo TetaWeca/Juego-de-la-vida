@@ -17,18 +17,35 @@ int main(void){
 
     board_t board(columns,rows);
 
-    int row,column;
+    int row,column,preprogram;
 
     std::cout << board;
 
-    std::cout << "Vamos a hacer que una de las células esté viva. Dime el número de fila de la célula: ";
+    std::cout << "¿Quieres usar una configuración preprogramada? Responde 1 si la respuesta es sí y 0 si es no: ";
+    std::cin >> preprogram;
+
+        if (preprogram !=0)
+        {
+            board.setAlive(12,12,1);
+            board.setAlive(12,11,1);
+            board.setAlive(11,12,1);
+            board.setAlive(11,13,1);
+            board.setAlive(13,12,1);
+
+            std::cout << board;
+        }
+
+        else
+    {
+
+        std::cout << "Vamos a hacer que una de las células esté viva. Dime el número de fila de la célula: ";
         std::cin >> row;
         std::cout << "Y el número de columna: ";
         std::cin >> column;
         std::cout << "¿Qué tipo de célula debería ser?: ";
         std::cin >> type;
 
-        board.SetAlive(row-1,column-1,type);
+        board.setAlive(row-1,column-1,type);
         std::cout << board;
 
     while (condition != 0)
@@ -46,9 +63,10 @@ int main(void){
         std::cout << "¿Qué tipo de célula debería ser?: ";
         std::cin >> type;
 
-        board.SetAlive(row-1,column-1,type);
+        board.setAlive(row-1,column-1,type);
         std::cout << board;
         }
+    }
     }
 
     std::cout << "Ya casi estamos, ¡Sólo queda un paso! ";

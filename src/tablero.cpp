@@ -28,28 +28,28 @@
         }
     }
 
-    void board_t::SetAlive(int x, int y, int tipo)
+    void board_t::setAlive(int x, int y, int type)
     {
         assert(x < y_-2 && x > -1);
         assert(y < x_-2 && y > -1);  
         
         delete celulis[x+1][y+1];
 
-        celulis[x+1][y+1] = cell_t::createCell(x+1,y+1,tipo);
+        celulis[x+1][y+1] = cell_t::createCell(x+1,y+1,type);
     }
 
     void board_t::turn()
     {
-        count_neigh();
+        countNeigh();
         updateCells();
     }
 
-    void board_t::cuenta()
+    void board_t::count()
     {
-        count_neigh();
+        countNeigh();
     }
 
-    void board_t::count_neigh()
+    void board_t::countNeigh()
     {
         for (int i=1;i<y_-1;i++)
         {
@@ -66,10 +66,10 @@
         {
             for (int j=1;j<x_-1;j++)
             {
-                int nuevotipo = celulis[i][j]->getnewType();
-                    if(celulis[i][j]->getState() != nuevotipo)
+                int newtype = celulis[i][j]->getnewType();
+                    if(celulis[i][j]->getState() != newtype)
                     {
-                        SetAlive(i-1,j-1,nuevotipo);
+                        setAlive(i-1,j-1,newtype);
                     }
             }
         }

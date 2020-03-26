@@ -25,13 +25,13 @@ class board_t
 
         cell_t* at(int x, int y);
 
-        void SetAlive(int x, int y, int tipo);
+        void setAlive(int x, int y, int tipo);
 
         void turn();
 
-        void cuenta();
+        void count();
 
-        void count_neigh();
+        void countNeigh();
 
         void updateCells();
 
